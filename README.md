@@ -227,28 +227,26 @@ Es posible crear ficheros `.terraformignore`, para determinar que tipo de ficher
 ## Comandos
 Todos los sub-comandos que se pueden lanzar con terraform son los siguientes:
 
-| command  | flags  | description  |
+| command  | Usage  | description  |
 |---|---|---|
-| apply   |   |   |
-| console  |   |   |
-| destroy  |   |   |
-| env  |   |   |
-| fmt  |   |   |
-| force-unlock  |   |   |
-| get  |   |   |
-| graph  |   |   |
-| import  |   |   |
-| init  |   |   |
-| login  |   |   |
-| logout  |   |   |
-| output  |   |   |
-| plan  |   |   |
-| providers  |   |   |
-| push  |   |   |
-| refresh  |   |   |
-| show  |   |   |
-| state  |   |   |
-| taint  |   |   |
-| validate  |   |   |
-| untaint  |   |   |
-| workspace  |   |   |
+| apply   | terraform apply [options] [dir-or-plan]  | Utilizado para aplicar los cambios para alcanzar el estado deseado  |
+| console  | terraform console [options] [dir]  | Consola interactiva para evaluar expresiones  |
+| destroy  | terraform destroy [options] [dir]  | Destruye la infraestructura  |
+| fmt  | terraform fmt [options] [DIR]  | Reescribe los ficheros a un formato y estilo canónico  |
+| force-unlock  | terraform force-unlock LOCK_ID [DIR]  | Desbloqueo manual de la configuración definida  |
+| get  | terraform get [options] [dir]  | Descarga y actualiza los módulos mencionados en el módulo raiz  |
+| graph  | terraform graph [options] [DIR]  | Genera una representación visual de un plan de configuración, en formato DOT y representable por GraphViz |
+| import  | terraform import [options] ADDRESS_ID  | Importa recursos existentes  |
+| init  | terraform init [options] [DIR]  | Inicializa el directorio de trabajo, por ejemplo, descargando los `providers` necesarios  |
+| login  | terraform login [hostname]  | Obtener y guardar un token para la API de Terraform Cloud, Enterprise u otro host  |
+| logout  | terraform logout [hostname]  | Elimina token para la API de Terraform Cloud, Enterprise u otro host   |
+| output  | terraform output [options] [NAME]  | Muestra el valor de la salida de una variable definida en el `State file`  |
+| plan  | terraform plan [options] [dir]  | Plan de ejecución. Permite conocer que modificaciones hará para alcanzar el estado deseado  |
+| providers  | terraform providers [config-path]  | Muestra información sobre los `providers` usandos en la configuración actual  |
+| refresh  | terraform refresh [options] [dir]  | Alinear `State file` con el estado actual  |
+| show  | terraform show [options] [path]   | Muestra salida legible sobre un `State File` o `Plan File`  |
+| state  | terraform state <subcommand> [options] [args]  | Permite modificar el `State File`, o incluso hacer backups de el  |
+| taint  | terraform taint [options] address  | Permite marcar un recursos para forzar su recreación en el proximo `apply`  |
+| validate  | terraform validate [options] [dir]  | Valida los archivos de configuración, sin acceder a ningún servicio remoto   |
+| untaint  | terraform untaint [options] name  | Permitir desmarcar un recurso que ha sido marcado para su recreación  |
+| workspace  | terraform workspace <subcommand> [options] [args]  | Usado para administrar los workspaces  |
