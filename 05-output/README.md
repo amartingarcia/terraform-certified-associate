@@ -127,9 +127,9 @@ Existe un recurso llamado `aws_iam_group_membership`, permite la unión entre un
 
 Si nos fijamos en la documentación:
 > The following arguments are supported:
-> name - (Required) The name to identify the Group Membership
-> users - (Required) A list of IAM User names to associate with the Group
-> group – (Required) The IAM Group name to attach the list of users to
+> - name - (Required) The name to identify the Group Membership
+> - users - (Required) A list of IAM User names to associate with the Group
+> - group – (Required) The IAM Group name to attach the list of users to
 
 Por lo tanto necesitamos el nombre del usuario y el nombre del grupo.
 
