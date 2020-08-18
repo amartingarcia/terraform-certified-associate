@@ -37,6 +37,9 @@ Para la preparación del examen se ha tenido en cuenta los siguientes puntos ofi
     - [TF_CLI_CONFIG_FILE](#tf_cli_config_file)
     - [TF_IGNORE](#tf_ignore)
   - [Comandos](#comandos)
+- [Providers](#providers)
+  - [Recursos necesarios](#recursos-necesarios)
+  - [Recursos recomendados](#recursos-recomendados)
 
 
 
@@ -250,3 +253,40 @@ Todos los sub-comandos que se pueden lanzar con terraform son los siguientes:
 | validate  | terraform validate [options] [dir]  | Valida los archivos de configuración, sin acceder a ningún servicio remoto   |
 | untaint  | terraform untaint [options] name  | Permitir desmarcar un recurso que ha sido marcado para su recreación  |
 | workspace  | terraform workspace <subcommand> [options] [args]  | Usado para administrar los workspaces  |
+
+
+# Providers
+Un Provider, es el responsable de comprender las interacciones de la API y de exponer sus recursos. 
+
+__Terraform Registry__ es el almacen principal de los __providers__ de Terraform disponibles públicamente.
+
+Debe indicar en su código el __provider__ o __providers__ a utilizar. 
+Cuando ejecuta `terraform init`, busca el provider declarado y descarga su plugin en el directorio __.terraform__ del directorio de trabajo.
+
+Puede encontrar los providers manejados por Terraform, en la página oficial.
+
+## Recursos necesarios
+El primer recursos a indicar en nuestro código será el provider. Por ejemplo, para AWS:
+Las credenciales pueden ser indicadas como variables de entorno, tal como se utilizarían para interactuar con la plataforma, o en el propio recurso.
+
+```
+provider "aws" {
+  region  = "us-east-1"
+  access_key = "PUT-YOUR-ACCESS-KEY-HERE"
+  secret_key = "PUT-YOUR-SECRET-KEY-HERE"
+}
+```
+
+## Recursos recomendados
+Es conveniente, pero no obligatorio, indicar algunas configuraciones para evitar problemas en la provisión de la infraestructura.
+La siguiente configuración, permite que la versión del provider sea la última versión `2.X.X`. Y requiere que la versión de terraform sea igual o superior a la versión `0.12`
+```
+provider "aws" {
+  region  = "us-east-1"
+  version = "~> 2.55.0"
+}
+
+terraform {
+  required_version = ">= 0.12"
+}
+```
