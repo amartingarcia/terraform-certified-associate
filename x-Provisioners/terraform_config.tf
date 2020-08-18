@@ -5,7 +5,7 @@ provider "aws" {
   region     = "eu-west-1"
   #access_key = "PUT-YOUR-ACCESS-KEY-HERE"
   #secret_key = "PUT-YOUR-SECRET-KEY-HERE"
-  version = "~> 2.55.0"
+  version = "~> 3.0"
 }
 
 ## Config
