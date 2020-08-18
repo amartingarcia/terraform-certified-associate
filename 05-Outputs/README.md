@@ -182,3 +182,30 @@ aws_iam_group_membership.team: Creation complete after 1s [id=tf-testing-group-m
 
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
+
+Existe un objeto de terraform, `outputs`, permite mostrar uno o varios outputs de un recurso.
+
+```
+output "my_user" {
+    value = aws_iam_user.lb
+}
+```
+
+Una vez declarado, podemos obtener el output del recurso, con la ejecución `terraform output`:
+```
+terraform output 
+
+my_user = {
+  "arn" = "arn:aws:iam::363131141369:user/system/loadbalancer"
+  "force_destroy" = false
+  "id" = "loadbalancer"
+  "name" = "loadbalancer"
+  "path" = "/system/"
+  "tags" = {
+    "tag-key" = "tag-value"
+  }
+  "unique_id" = "AIDAVJDCNPT4RA5UEJGDR"
+```
+
+Si nos fijamos en el fichero terraform.tfstate, veremos como exite una propiedad llamada outputs, en la que se definen los outputs de este directorio de trabajo.
+
