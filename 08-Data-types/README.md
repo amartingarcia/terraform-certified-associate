@@ -12,6 +12,3 @@ Con respecto a las variables, es recomendable indicar el tipo de dato que se esp
 | object({Attr name = type})  | una colección de atributos nombrados que cada uno tiene su propio tipo  | { name = "John", age  = 52 } |
 | tuple([type]) | secuencia de elementos identificados por números enteros consecutivos empezando por cero, donde cada elemento tiene su propio tipo | ["a", 15, true] |
 
-
-
-# String
