@@ -1,8 +1,9 @@
 resource "aws_lb" "test" {
-  name               = var.string # Variable tipo String
-  internal           = var.bool   # Variable tipo Bool
-  load_balancer_type = "network"
-  subnets            = var.list # Variable tipo List
+  name               = var.string    # Variable tipo String
+  internal           = var.bool      # Variable tipo Bool
+  subnets            = var.list      # Variable tipo List
+  load_balancer_type = var.list_1[0] # Variable tipo List
+
 
   enable_deletion_protection = true
 
@@ -10,8 +11,8 @@ resource "aws_lb" "test" {
 }
 
 resource "aws_lb_target_group" "test" {
-  name     = "tf-example-lb-tg"
-  port     = var.number # Variable tipo Number
+  name     = var.map_1[data.aws_region.current.name] # Variable tipo List
+  port     = var.number                              # Variable tipo Number
   protocol = "HTTP"
   vpc_id   = "vpc-1234"
 }
@@ -47,3 +48,5 @@ resource "aws_lb_listener_rule" "static" {
     }
   }
 }
+
+data "aws_region" "current" {}

@@ -14,7 +14,15 @@ variable "list" {
   type    = list(string)
   default = null
 }
+variable "list_1" {
+  type    = list(string)
+  default = null
+}
 variable "map" {
+  type    = map(string)
+  default = null
+}
+variable "map_1" {
   type    = map(string)
   default = null
 }
