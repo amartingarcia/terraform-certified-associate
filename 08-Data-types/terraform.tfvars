@@ -1,0 +1,4 @@
+string=""
+number=""
+variable=""
+map=""
