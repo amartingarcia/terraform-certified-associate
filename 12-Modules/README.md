@@ -1,21 +1,16 @@
 # 12 - Módulos
 Existe un principo en el desarrollo del software, __No Te Repitas__ ó __DRY__ (Don’t Repeat Yourself), su principal objetivo es evitar la duplicación de código.
 
-Con los módulos, evitamos repetir código, permitiendo la reutilización, y modificación por medio de varibles.
+Utilizando _modules_ de Terraform, evitamos repetir código, permitiendo la reutilización.
 
-Una vez declarado del módulo de EC2, será posible su reutilización, si nn necesidad de volver a escribirlo.
+Los módulos se parametrizan para permitir su uso en diversos casos. Veamos algún ejemplo:
+
+En el directorio modules se encuentra la definición de un recurso EC2, y que es invocado así:
 
 ```
 module "ec2module" {
     source = "../modules/ec2"
+    instance_type = "t2.large"
 }
 ```
-
-Para que nuestro módulo sea parametrizable, es necesario definir las variables necesarias.
-Nuestro módulo tiene variables por defecto por si no fueran definidas
-```
-```
-
-# Terraform Registry
-Los módulos oficiales de recuros de terraform, se encuentran en su Registry
 
