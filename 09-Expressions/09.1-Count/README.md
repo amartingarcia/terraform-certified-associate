@@ -1,8 +1,9 @@
 # Count
-Todos los recursos, admiten la propiedad __Count__, es manejada por terraform, y permite indicar el número de elementos que será creados para el recurso.
+Todos los recursos, admiten la propiedad __count__, es manejada por terraform, y permite indicar el número de elementos que será creados para el recurso.
 
 * Count
-Añadiendo count = 5, en el recurso para crear un usuario, podemos ver como el recurso se creará 5 veces
+Añadiendo `count = 5`, en el recurso para crear un usuario, podemos ver como el recurso se creará 5 veces.
+
 ```
 terraform plan
 Refreshing Terraform state in-memory prior to plan...
@@ -93,7 +94,7 @@ can't guarantee that exactly these actions will be performed if
 ```
 
 * Count index
-Es posible que necesitamos acceder al indice de cada recurso creado con anterioridad, porque necesitemos diferenciar cada recurso.
+Es posible que necesitamos acceder al indice de cada recurso creado con anterioridad, para diferenciar cada recurso.
 
 ```
 terraform plan

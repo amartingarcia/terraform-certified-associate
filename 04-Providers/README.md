@@ -1,12 +1,15 @@
 # 04 - Providers
-Para un provider, si no se especifica la versión, siempre descargará la más actualizada.
+Cuando utilizamos un _provider_, si no especificamos una versión, descargará la última versión disponible.
 
+1. Fichero con la configuración.
 ```
 provider "aws" {
   region     = "us-west-1"
 }
 
 ```
+
+2. Descargamos el provider.
 ```
 terraform init
 

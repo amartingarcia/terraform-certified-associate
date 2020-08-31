@@ -5,7 +5,7 @@ Utilizando _modules_ de Terraform, evitamos repetir código, permitiendo la reut
 
 Los módulos se parametrizan para permitir su uso en diversos casos. Veamos algún ejemplo:
 
-En el directorio modules se encuentra la definición de un recurso EC2, y que es invocado así:
+En el directorio modules se encuentra la definición de un recurso EC2, y que es invocado así, desde el directorio _project_:
 
 ```
 module "ec2module" {

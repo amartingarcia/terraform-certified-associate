@@ -1,5 +1,5 @@
 # 03 - Estado actual Vs Estado deseado
-Cuando ejecutamos un plan o un apply, terraform compara el estado actual, fichero terraform.tfstate con el estado de lo que estamos enviando al a API del provider.
+Cuando ejecutamos alguno de los sub-comandos _plan_ o _apply_, Terraform compara el estado actual (fichero `terraform.tfstate`), con el estado de lo que estamos enviando al a API del provider.
 
 1. Partiendo de que tenemos los recursos creados.
 ```

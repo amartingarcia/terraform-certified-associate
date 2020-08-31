@@ -99,5 +99,5 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
 Una vez aplicado, nos fijamos en el fichero `terraform.tfstate`, tendrá una definición de los recursos creados.
-IMPORTANTE: Este fichero nunca debe ser editado a mano.
+> __IMPORTANTE__: Este fichero nunca debe ser editado a mano.
 

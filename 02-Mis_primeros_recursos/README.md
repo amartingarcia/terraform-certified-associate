@@ -4,7 +4,7 @@ Pero es posible indicar uno o varios recuros exclusivamente, tanto para la creac
 
 1. Creación de solo un recurso.
 ```
-terraform apply --target=aws_iam_group.developers
+terraform apply -target aws_iam_group.developers
 
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
@@ -40,9 +40,10 @@ Do you want to perform these actions?
 
   Enter a value: 
 ```
-2. Creación de dos recursos
+
+2. Creación de dos recursos.
 ```
-terraform apply --target=aws_iam_group.developers --target=aws_iam_user.lb
+terraform apply -target aws_iam_group.developers -target aws_iam_user.lb
 
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
@@ -91,9 +92,12 @@ Do you want to perform these actions?
 
   Enter a value: 
 ```
-3. Eliminación de un recurso
+
+3. Eliminación de un recurso.
 ```
-terraform destroy --target=aws_iam_group.developersaws_iam_group.developers: Refreshing state... [id=developers]
+terraform destroy -target aws_iam_group.developers
+
+Refreshing state... [id=developers]
 
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
@@ -129,9 +133,11 @@ Do you really want to destroy all resources?
 
   Enter a value: yes
 ```
-4. Eliminación de dos recursos
+
+4. Eliminación de dos recursos.
 ```
-terraform destroy --target=aws_iam_group.developers --target=aws_iam_user.lb 
+terraform destroy -target aws_iam_group.developers -target aws_iam_user.lb
+
 aws_iam_group.developers: Refreshing state... [id=developers]
 aws_iam_user.lb: Refreshing state... [id=loadbalancer]
 

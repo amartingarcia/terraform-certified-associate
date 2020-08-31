@@ -1,10 +1,10 @@
 # 07 - Variables
-Principalmente las variables se utilizan para los valore repetitivos, pero también pueden ser utilizadas para valores cambiantes.
+Principalmente las variables se utilizan para los valores repetitivos, pero también pueden ser utilizadas para valores con mayor tendencia a cambios.
 
 ## Ejemplo de declaración de variables
 
 ## Asignación de variables
-Una variable puede ser asignada o sobreescrita durante la ejecución de un _plan_ o un _apply_
+Una variable puede ser asignada o sobreescrita durante la ejecución de un _plan_ o un _apply_.
 ```
 terraform plan -var="cidr=189.1.3.57/32"
 Refreshing Terraform state in-memory prior to plan...
@@ -186,7 +186,7 @@ Las variables pueden ser definidas en múltiples lugares, pero son ordenadas por
 ## Variables de entorno
 La declaración de la variable debe estar previamente definida.
 
-En el fichero variables.tf, se define la variable cidr, si ejecutamos el plan al como se encuentra el código, nos pedirá el valor de la variable por pantalla.
+En el fichero variables.tf, se define la variable cidr, si ejecutamos `terraform plan`, nos pedirá el valor de la variable por pantalla.
 ```
  terraform plan
 var.cidr
@@ -282,7 +282,7 @@ can't guarantee that exactly these actions will be performed if
 
 
 ## Ficheros terraform.tfvars o terraform.tfvar.json
-Las buenas práticas de Terraform definen que se utilicen ficheros .tfvars, junto con valores por defecto.
+Las buenas práticas de Terraform definen que se utilicen ficheros `.tfvars`, junto con valores por defecto.
 Para entenderlo debemos jugar con los ficheros y sus valores:
 
 * Terraform plan, con definición de variable y valor en _variables.tf_:
