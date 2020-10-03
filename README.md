@@ -6,29 +6,29 @@ The following official points of the documentation have been taken into account 
 
 # Table of contents:
 - [terraform_training](#terraform_training)
-- Table of contents](#table-of-contents)
+- [Table of contents](#table-of-contents)
 - [Introduction](#introduction)
-- [Use cases](#use cases)
-- Configuration language](#configuration language)
+- [Use_cases](#use cases)
+- [Configuration_language](#configuration language)
   - [Resources and modules](#resources-and-modules)
   - [Arguments, blocks and expressions](#arguments-blocks-and-expressions)
-  - [Code organization](#code organization)
+  - [Code_organization](#code organization)
   - [Sorting configuration](#sorting-configuration)
   - [Terraform CLI vs other providers](#terraform-cli-vs-other-providers)
-- Configuration block](#configuration block)
+- [Configuration_block](#configuration block)
   - [Syntax](#syntax)
   - [Types of resources](#resource-types)
   - [Resource behaviour](#resource-behaviour)
   - [Meta-arguments](#meta-arguments)
   - [Local resources](#local-resources)
   - [Timeouts](#timeouts)
-- Terraform CLI](#terraform-cli)
-  - Configuration files](#configurationfiles)
+- [Terraform CLI](#terraform-cli)
+  - [Configuration files](#configurationfiles)
   - [Environmental variables](#environmental-variables)
-    - TF_LOG](#tf_log)
-    - TF_LOG_PATH](#tf_log_path)
-    - TF_INPUT](#tf_input)
-    - TF_VAR_name](#tf_var_name)
+    - [TF_LOG](#tf_log)
+    - [TF_LOG_PATH](#tf_log_path)
+    - [TF_INPUT](#tf_input)
+    - [TF_VAR_name](#tf_var_name)
     - [TF_CLI_ARGS and TF_CLI_ARGS_name](#tf_cli_args-and-tf_cli_args_name)
     - [TF_DATA_DIR](#tf_data_dir)
     - [TF_IN_AUTOMATION](#tf_in_automation)
@@ -316,7 +316,6 @@ The following exercises have been planned to acquire the necessary knowledge for
 
 | Index | Link | Description |
 |---|---|---|
-<<<<<<< HEAD
 | 01 | [My first resource](01-Mi_first_resource/README.md) | Creating a single resource
 | 02 | [My first resources](02-My_first_resources_v2/README.md) | Creating various resources |
 | 03 | [Current Status VS Desired Status](03-Current_State-Vs-Desired_State/README.md) | Examples of .tfstate, current status and desired status |
@@ -337,25 +336,3 @@ The following exercises have been planned to acquire the necessary knowledge for
 | 18 | [Taiting](18-tainting/README.md) | Example of Taiting |
 | 19 | [Terraform Graph](19-terraform-graph/README.md) | Example of graph creation |
 | 20 | [Vault](20-vault/README.md) | Example with Vault
-=======
-| 01  | [Mi primer recurso](01-Mi_primer_recurso/README.md)  | Creación de un único recurso  |
-| 02  | [Mis primeros recursos](02-Mis_primeros_recursos/README.md)  | Creación de varios recursos  |
-| 03  | [Estado actual VS Estado deseado](03-Estado_actual-Vs-Estado_deseado/README.md)  | Ejemplos de .tfstate, estado actual y estado deseado  |
-| 04  | [Providers](04-Providers/README.md)  | Ejemplos de Providers |
-| 05  | [Outputs](05-Outputs/README.md)  | Ejemplos de Outputs  |
-| 06  | [Outputs V2](06-Outputs-V2/README.md)  | Ejemplo de outputs entre .tfstate  |
-| 07  | [Variables](07-Variables/README.md)  | Ejemplo de variables  |
-| 08  | [Data types](08-Data-types/README.md)  | Ejemplo de Data types  |
-| 09  | [Expressions](09-Expressions/README.md)  | Ejemplo de Expressions  |
-| 10  | [Local values](10-Local_values/README.md)  | Ejemplo de valores locales  |
-| 11  | [Provisioners](11-Provisioners/README.md)  | Ejemplo de Provisioners  |
-| 12  | [Modules](12-Modules/README.md)  | Ejemplo de Modulos  |
-| 13  | [Data sources](13-Data-sources/README.md)  | Ejemplo de Data Sources |
-| 14  | [Registry](14-Registry/README.md)  | Ejemplo de Registry |
-| 15  | [Workspace](15-Workspaces/README.md)  | Ejemplo de Workspace |
-| 16  | [Remote state management](16-Remote-State-Management/README.md)  | Ejemplos de manejo con el state remoto  |
-| 17  | [Dynamic blocks](17-dynamic-blocks/README.md)  | Ejemplo de manejo con bloques dinámicos  |
-| 18  | [Taiting](18-tainting/README.md)  | Ejemplo de Taiting  |
-| 19  | [Terraform Graph](19-terraform-graph/README.md)  | Ejemplo de creación de gráficos  |
-| 20  | [Vault](20-vault/README.md)  | Ejemplo con Vault  |
->>>>>>> 424c608f410cde02eaf728c4d0762d3f599dc26d
