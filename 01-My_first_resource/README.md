@@ -1,8 +1,8 @@
-# 01 - Mi primer recurso
-En este primer ejemplo, mostramos como crear un usuario en AWS.
+# 01 - My first resource
+In this first example, we show how to create a user in AWS.
 
-1. Ejecutaremos `terraform init`:
-Descargará el provider indicado, para interactuar con la plataforma
+1. We will execute 'terraform init':
+Download the indicated provider, to interact with the platform
 
 ```
 Initializing the backend...
@@ -22,9 +22,9 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-2. Ejecutamos terraform plan:
-Al ejecutar el plan, se crearán un fichero en el directorio de trabajo `terraform.tfstate` (Almacena el estado de la infraestructura).
-Por ello durante el plan, el fichero se encuentra vacio.
+2. We execute terraform plan:
+When the plan is executed, a file will be created in the working directory 'terraform.tfstate' (Stores the state of the infrastructure).
+This is why the file is empty during the plan.
 ```
 Refreshing Terraform state in-memory prior to plan...
 The refreshed state will be used to calculate this plan, but will not be
@@ -61,8 +61,8 @@ can't guarantee that exactly these actions will be performed if
 "terraform apply" is subsequently run.
 ```
 
-3. Ejecutamos `terraform apply`:
-Esta ejecución, permite llevar el estado de la infraestructura, al estado deseado.
+3. We execute 'terraform apply':
+This execution, allows to take the state of the infrastructure, to the desired state.
 
 ```
 An execution plan has been generated and is shown below.
@@ -98,6 +98,6 @@ aws_iam_user.lb: Creation complete after 1s [id=loadbalancer]
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-Una vez aplicado, nos fijamos en el fichero `terraform.tfstate`, tendrá una definición de los recursos creados.
-> __IMPORTANTE__: Este fichero nunca debe ser editado a mano.
+Once applied, we look at the file 'terraform.tfstate', it will have a definition of the resources created.
+> __IMPORTANT__: This file should never be edited by hand.
 

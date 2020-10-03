@@ -1,5 +1,5 @@
 # Tainting
-Permite marcar un recursos para su recreación el próximo `terraform apply`.
+It allows you to mark a resource for recreation the next 'terraform apply'.
 ```
 terraform apply
 

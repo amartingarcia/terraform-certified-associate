@@ -1,16 +1,16 @@
-# 12 - Módulos
-Existe un principo en el desarrollo del software, __No Te Repitas__ ó __DRY__ (Don’t Repeat Yourself), su principal objetivo es evitar la duplicación de código.
+# 12 - Modules
+There is a principle in the development of the software, __Don't Repeat Yourself__ or __DRY__, its main objective is to avoid the duplication of code.
 
-Utilizando _modules_ de Terraform, evitamos repetir código, permitiendo la reutilización.
+Using __modules_ from Terraform, we avoid repeating code, allowing reuse.
 
-Los módulos se parametrizan para permitir su uso en diversos casos. Veamos algún ejemplo:
+The modules are parameterised to allow their use in various cases. Let's look at some examples:
 
-En el directorio modules se encuentra la definición de un recurso EC2, y que es invocado así, desde el directorio _project_:
+In the modules directory there is a definition of an EC2 resource, which is invoked in this way, from the _project_ directory:
 
 ```
 module "ec2module" {
     source = "../modules/ec2"
-    instance_type = "t2.large"
+    instance_type = "t2.large
 }
 ```
 

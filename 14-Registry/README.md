@@ -1,6 +1,6 @@
 # Terraform Registry
-Terraform Registry, es una herramienta para construir, versionar y cambiar la infraestructura de manera segura.
-Podemos encontrar objetos como, providers o modules.
+Terraform Registry, is a tool to build, version and change the infrastructure in a safe way.
+We can find objects like, providers or modules.
 
-En nuestro ejemplo, creamos una instancia de EC2 a partir de un module obtenido de Terraform Registry.
+In our example, we create an instance of EC2 from a module obtained from the Terraform Registry.
 

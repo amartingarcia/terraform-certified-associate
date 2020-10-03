@@ -1,20 +1,20 @@
-# 09 - Expresiones
-Existen varias expresiones que pueden ser utilizadas con terraform:
+# 09 - Expressions
+There are several expressions that can be used with terraform:
 - Count
-- Operadores lógicos y aritméticos
-- Condicionales
-- Llamadas a funciones
+- Logical and arithmetic operators
+- Conditional
+- Function calls
 - For
 - For_each
 - Depends_on
 - Lifecycle
 - Splat
-- Bloques dinámicos
-- String literales
-- plantillas de strings
+- Dynamic blocks
+- Literal String
+- strings templates
 
 ## Count
-Vease el ejemplo.
+See the example.
 
 ## Conditional Expressions
 

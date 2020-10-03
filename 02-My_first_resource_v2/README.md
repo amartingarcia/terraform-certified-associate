@@ -1,8 +1,8 @@
-# 02 - Mis primeros recursos
-Si no lo indicas, terraform tratará de llevar al estado deseado, todos los recursos del directorio de trabajo. 
-Pero es posible indicar uno o varios recuros exclusivamente, tanto para la creación como para la destrucción.
+# 02 - My first resources
+If you do not indicate this, terraform will try to bring all the resources in the working directory to the desired state. 
+But it is possible to indicate one or more resources exclusively, both for creation and destruction.
 
-1. Creación de solo un recurso.
+1. Creation of only one resource.
 ```
 terraform apply -target aws_iam_group.developers
 
@@ -41,7 +41,7 @@ Do you want to perform these actions?
   Enter a value: 
 ```
 
-2. Creación de dos recursos.
+2. Creation of two resources.
 ```
 terraform apply -target aws_iam_group.developers -target aws_iam_user.lb
 
@@ -93,7 +93,7 @@ Do you want to perform these actions?
   Enter a value: 
 ```
 
-3. Eliminación de un recurso.
+3. Delete a resource.
 ```
 terraform destroy -target aws_iam_group.developers
 
@@ -134,7 +134,7 @@ Do you really want to destroy all resources?
   Enter a value: yes
 ```
 
-4. Eliminación de dos recursos.
+4. Elimination of two resources.
 ```
 terraform destroy -target aws_iam_group.developers -target aws_iam_user.lb
 

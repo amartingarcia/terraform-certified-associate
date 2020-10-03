@@ -1,9 +1,9 @@
 # Workspaces
-Los workspaces ayudan a mantener el mismo código para entornos distintos.
+Workspaces help maintain the same code for different environments.
 
-Por ejemplo, dado dos entornos: Producción y preproducción.
+For example, given two environments: production and pre-production.
 
-Las instancias creadas para el entorno pre-productivo, pueden ser de inferior capacidad, sin embarto para las del entorno produccito, puede ser de mayor capacidad.
+The instances created for the pre-production environment can be of lower capacity, but for those in the production environment, it can be of higher capacity.
 
 ```
 terraform workspace show

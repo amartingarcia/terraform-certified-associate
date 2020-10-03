@@ -1,7 +1,7 @@
-# 03 - Estado actual Vs Estado deseado
-Cuando ejecutamos alguno de los sub-comandos _plan_ o _apply_, Terraform compara el estado actual (fichero `terraform.tfstate`), con el estado de lo que estamos enviando al a API del provider.
+# 03 - Current Status Vs Desired Status
+When we execute any of the _plan_ or _apply_ sub-commands, Terraform compares the current status (file `terraform.tfstate`), with the status of what we are sending to the provider's API.
 
-1. Partiendo de que tenemos los recursos creados.
+Starting from the fact that we have the resources created.
 ```
 terraform apply
 
@@ -10,7 +10,7 @@ aws_iam_user.lb: Refreshing state... [id=loadbalancer]
 Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
 ```
 
-2. Modificamos el nombre del usuario.
+2. We modify the user's name.
 ```
 terraform apply
 aws_iam_user.lb: Refreshing state... [id=loadbalancer]

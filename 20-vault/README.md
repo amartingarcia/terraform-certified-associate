@@ -1,12 +1,12 @@
 # Vault
 
-Hay que instalar la herramienta vault
-Iniciar el servicio:
+The vault tool must be installed
+Start the service:
 ```
 vault server -dev
 ```
 
-En la configuración indicamos la dirección IP del servidor, y ejecutamos terraform init, para descargar el provider.
+In the configuration we indicate the IP address of the server, and run terraform init, to download the provider.
 ```
 terraform init
 

@@ -1,10 +1,10 @@
 # 05 - Outputs
-Los atributos _Outputs_, no solo sirven para darnos información sobre los recursos creados.
-También pueden ser consumidos por otros recursos.
+The _Outputs_ attributes, not only serve to give us information about the resources created.
+They can also be consumed by other resources.
 
-En el ejemplo vamos a crear un grupo, un usuario, y la unión entre ellos.
+In the example we are going to create a group, a user, and the union between them.
 
-1. Creamos el grupo
+1. We create the group
 ```
 terraform apply -target aws_iam_group.developers
 
@@ -61,7 +61,7 @@ when Terraform specifically suggests to use it as part of an error message.
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-2. Creamos el usuario
+2. Create a user.
 ```
 terraform apply -target aws_iam_user.lb 
 
@@ -122,19 +122,19 @@ when Terraform specifically suggests to use it as part of an error message.
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-3. Unir un usuario y un grupo. 
-Existe un recurso llamado `aws_iam_group_membership`, permite la unión entre un usuario y un grupo en AWS.
+3. Join a user and a group. 
+There is a resource called `aws_iam_group_membership`, it allows the union between a user and a group in AWS.
 
-Si nos fijamos en la documentación:
+If we look at the documentation:
 > The following arguments are supported:
 > - name - (Required) The name to identify the Group Membership
 > - users - (Required) A list of IAM User names to associate with the Group
-> - group – (Required) The IAM Group name to attach the list of users to
+> - group - (Required) The IAM Group name to attach the list of users to
 
-Por lo tanto necesitamos el nombre del usuario y el nombre del grupo.
+Therefore we need the name of the user and the name of the group.
 
-Si nos fijamos en la creación de los recuros anteriormente creados, podemos observar que en la salida nos muestra que los recursos tienen un atributo _nombre_.
-Se puede hacer referencia a ese atributo, componiendo `recurso.nombre_recurso.atributo`, para la creación de nuestro recurso:
+If we look at the creation of the previously created resources, we can see that the output shows us that the resources have a _name_ attribute.
+You can refer to that attribute, composing 'resource.name.attribute', for the creation of your resource:
 
 ```
 resource "aws_iam_group_membership" "team" {
@@ -183,8 +183,8 @@ aws_iam_group_membership.team: Creation complete after 1s [id=tf-testing-group-m
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-## Objecto Output
-Existe un objeto de terraform, `output`, permite mostrar información de un recurso.
+## Output object
+There is a terraform object, 'output', which allows you to display information about a resource.
 
 ```
 output "my_user" {
@@ -192,7 +192,7 @@ output "my_user" {
 }
 ```
 
-Una vez declarado, podemos obtener el output del recurso, con la ejecución `terraform output`:
+Once declared, we can obtain the output of the resource, with the execution 'terraform output':
 
 ```
 terraform output 
@@ -209,5 +209,5 @@ my_user = {
   "unique_id" = "AIDAVJDCNPT4RA5UEJGDR"
 ```
 
-Si nos fijamos en el fichero `terraform.tfstate`, veremos como exite una propiedad llamada `outputs`, en la que se definen los outputs de este directorio de trabajo.
+If we look at the file `terraform.tfstate`, we will see how there is a property called `outputs`, in which the outputs of this working directory are defined.
 

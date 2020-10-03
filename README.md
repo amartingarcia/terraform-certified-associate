@@ -1,10 +1,10 @@
-# terraform_training
+# Hashicorp Terraform Certified Associate
 
-Para la preparación del examen se ha tenido en cuenta los siguientes puntos oficiales de la documentación:
+The following official points of the documentation have been taken into account for the preparation of the exam:
 - https://learn.hashicorp.com/tutorials/terraform/associate-review?in=terraform/certification
 
 
-# Tabla de contenidos
+# Table of contents:
 - [terraform_training](#terraform_training)
 - [Tabla de contenidos](#tabla-de-contenidos)
 - [Introducción](#introducción)
@@ -43,44 +43,45 @@ Para la preparación del examen se ha tenido en cuenta los siguientes puntos ofi
 
 
 
-# Introducción
-_Terraform_ es una herramienta para construir, cambiar y versionar la infraestructura de forma segura y eficiente, escrita en __Go__. Terraform puede gestionar los proveedores de servicios existentes y populares, así como soluciones internas personalizadas.
+# Introduction
+Terraform_ is a tool to build, change and version the infrastructure in a safe and efficient way, written in __Go__. Terraform can manage existing and popular service providers as well as customised internal solutions.
 
-Los archivos de configuración describen a _Terraform_ los componentes necesarios para ejecutar una sola aplicación o todo su centro de datos. _Terraform_ genera un plan de ejecución que describe lo que hará para alcanzar el estado deseado (_terraform plan_), y luego lo ejecuta para construir la infraestructura descrita. A medida que la configuración cambia, _Terraform_ es capaz de determinar lo que ha cambiado y crear planes de ejecución incrementales que pueden ser aplicados.
+Configuration files describe to _Terraform_ the components needed to run a single application or your entire data centre. Terraform_ generates an execution plan that describes what it will do to achieve the desired state (_terraform plan_), and then executes it to build the described infrastructure. As the configuration changes, the Terraform is able to determine what has changed and create incremental execution plans that can be applied.
 
-La infraestructura que _Terraform_ puede gestionar incluye componentes de bajo nivel como instancias de cálculo, almacenamiento y redes, así como componentes de alto nivel como entradas DNS, características SaaS, etc.
+The infrastructure that _Terraform_ can manage includes low level components such as compute, storage and network instances, as well as high level components such as DNS entries, SaaS features, etc.
 
-Las caracteristicas principales son:
-- Infra-as-code: permite mantener la infraestructura como código, definiendo el código en lenguaje __HLC__ (HashiCorp Configuration Language) o __JSON__.
-- Executions Plans: permite mostrar que cambios va a sufrir la infraestructura antes de ser aplicados.
-- Resource Graph: Permite la construcción de gráficos de infraestructura.
-
-
-# Casos de uso
-Los casos de uso más comunes son los siguientes:
-- Heroku App Setup: Puede ser utilizado para codificar la configuración asegurandose que los add-ons estén disponbiles, configurar DNSSimple, o configurar Cloudflare sin usar interfaz web.
-- Multi-Tier Apps: Con terraform pueden describirse colecciones de recursos, y las dependencias entre niveles se manejarán automáticamente.
-- Self-Service Clusters: Con un cierto tamaño organizativo, se hace compleja la operación para una infraestructura grande y creciente. 
-- Software Demos: <pendiente>
-- Disposable Environments: Es posible crear y destruir entornos efímeros rápidamente, replicando un entorno productivo
-- Software Defined Networking: <pendiente>
-- Resource Schedulers: <pendiente>
-- Multi-Cloud Deployment: Permite mantener código para varias nubes, creando incluso dependencias entre recursos y nubes.
+The main characteristics are:
+- Infra-as-code: it allows to maintain the infrastructure as code, defining the code in __HLC__ (HashiCorp Configuration Language) or __JSON__.
+- Executions Plans: allows to show what changes the infrastructure will suffer before being applied.
+- Resource Graph: It allows the construction of infrastructure graphics.
 
 
-# Lenguaje de configuración
-Terraform utiliza su propio lenguaje, es declarativo, describiendo una meta en lugar de los pasos para alcanzarla.
+# Use cases
+The most common cases of use are as follows:
+- Heroku App Setup: Can be used to encode the configuration ensuring that add-ons are available, configure DNSSimple, or configure Cloudflare without using a web interface.
+- Multi-Tier Apps: With terraform resource collections can be described, and dependencies between levels will be handled automatically.
+- Self-Service Clusters: With a certain organisational size, the operation becomes complex for a large and growing infrastructure. 
+- Software Demos: <pending>
+- Disposable Environments: It is possible to create and destroy ephemeral environments quickly, replicating a productive environment
+- Software Defined Networking: <pending>
+- Resource Schedulers: <pending>
+- Multi-Cloud Deployment: Allows you to maintain code for several clouds, even creating dependencies between resources and clouds.
 
-## Recursos y módulos
-El proposito principal es declarar los recursos, las demás características existen solo para hcer la definición del recurso más flexible y conveniente.
 
-Un grupo de recursos puede ser un módulo (_module_). 
-> Un recurso describe un solo objeto de infraestructura, mientras que un módulo puede describir un objeto o un conjunto de objetos.
 
-## Argumentos, bloques y expresiones
-La sintaxis del lenguaje, consigue en unos pocos elementos:
+# Configuration language
+Terraform uses its own language, it is declarative, describing a goal rather than the steps to reach it.
 
-Esqueleto de sintaxis:
+## Resources and modules
+The main purpose is to declare the resources, the other characteristics exist only to make the definition of the resource more flexible and convenient.
+
+A group of resources can be a module (_module_). 
+> A resource describes a single infrastructure object, while a module can describe an object or a set of objects.
+
+## Arguments, blocks and expressions
+The syntax of the language is achieved in a few elements:
+
+Skeleton of syntax:
 ```
 <BLOCK TYPE> "<BLOCK LABEL>" "<BLOCK LABEL>" {
   # Block body
@@ -88,51 +89,51 @@ Esqueleto de sintaxis:
 }
 ```
 
-Ejemplo de sintaxis:
+Example of syntax:
 ```
 resource "aws_vpc" "main" {
   cidr_block = var.base_cidr_block
 }
 ```
 
-- Bloques (_Block_): Son contenedores de otros contendos, y suelen representar la configuración del algún tipo de objeto. Pueden tener cero o más etiquetas.
-- Argumentos (_Argument_): Asigna un valor a un nombre. Aparecen dentro de los bloques.
-- Expresiones (_Expressions_): Representan un valor, ya sea literal o mediante la referencia o combinación de otros valores.
+- Blocks (_Block_): These are containers for other containers, and usually represent the configuration of some type of object. They can have zero or more labels.
+- Argument (_Argument_): Assigns a value to a name. They appear inside the blocks.
+- Expressions: They represent a value, either literally or by reference or combination of other values.
 
-## Organización de código
-Los ficheros de Terraform se nombran con la extensión __.tf__. También es posible utilizar lenguaje _JSON_, utilizando extensión __.tf.json__
-Debe usar la codificación _UTF-8_, y por convención suelen mantenerse con terminanciones de lina estilo Unix (LF).
+## Code organization
+Terraform files are named with the extension __.tf__. It is also possible to use _JSON_ language, using extension __.tf.json__
+You must use the _UTF-8_ coding, and by convention are usually kept with Unix style linen (LF) finishes.
 
-Un moódulo es una colección de archivos __.tf__ o __tf.json__ mantenidos juntos en un directorio.
+A module is a collection of __.tf__ or __tf.json__ files held together in a directory.
 
-## Configuración de ordenación
-Debido a que el lenguaje de configuración es declarativo, el orden de los bloques no es significativo.
-> El orden de los bloques de __provisioners__ es la única característica importante donde el orden importa.
+## Sorting configuration
+Because the configuration language is declarative, the order of the blocks is not significant.
+> The order of the blocks of __provisioners__ is the only important feature where order matters.
 
-Terraform procesa los recuros en el orden correcto, basado en las relaciones definidas entre ellos en la configuración. 
+Terraform processes the resources in the correct order, based on the relationships defined between them in the configuration. 
 
-## Terraform CLI vs otros providers
-Terraform CLI, es un motor para evaluar y aplicar las configuraciones de Terraform.
+## Terraform CLI vs other providers
+Terraform CLI, is an engine for evaluating and applying Terraform configurations.
 
-Este motor general no tiene conocimiento sobre tipos de objetos específicos. En su lugar, Terraform utiliza plugins llamados __providers__ que definen y adminstran cada conjunto de tipo de recursos.
-
-
-# Bloque de configuración
-Los recursos son el elemento más importante en el lenguaje de la Terraforma. Cada bloque de recursos describe uno o más objetos de infraestructura, como redes virtuales, instancias de computación o componentes de nivel superior como registros DNS.
+This general engine has no knowledge of specific object types. Instead, Terraform uses plugins called __providers__ that define and manage each set of resource types.
 
 
-## Sintaxis
-<pendiente>
-## Tipos de recursos
-<pendiente>
-## Comportamiento de los recursos
-<pendiente>
-## Meta-argumentos
-<pendiente>
-## Recursos locales
-<pendiente>
+# Configuration block
+Resources are the most important element in the language of the Terraforma. Each resource block describes one or more infrastructure objects such as virtual networks, computer instances or higher level components such as DNS records.
+
+
+## Syntax
+<pending>
+## Types of resources
+<pending>
+## Resource behaviour
+<pending>
+## Meta-arguments
+<pending>
+## Local resources
+<pending>
 ## Timeouts
-<pendiente>
+<pending>
 
 # Terraform CLI
 Terraform se controla a través de linea de comandos. Se puede ejecutar multitud de sub-comandos. 
@@ -151,14 +152,14 @@ Para instalar el autocompletado:
 terraform -install-autocomplete
 ```
 
-## Ficheros de configuración
-Es posible configurar el comportamiento de la CLI, y se aplican en todos los directorios de trabajo de Terraform.
+## Configuration files
+The CLI's behaviour can be configured, and they are applied in all Terraform working directories.
 
-Podemos encontrar ficheros __.terraformrc__ o __.terraform.rc__.
+You can find __.terraformrc__ or __.terraform.rc__ files.
 
-Es posible indicar un fichero de configuración, añadiendo el path a la variable de entorno `TF_CLI_CONFIG_FILE`
+It is possible to indicate a configuration file, adding the path to the environment variable `TF_CLI_CONFIG_FILE`.
 
-El fichero de configuración utiliza el mismo lenguaje que los ficheros de Terraform (HLC), y las configuraciones disponibles son las siguientes:
+The configuration file uses the same language as the Terraform (HLC) files, and the available configurations are as follows:
 - credentials
 - credentials_helper
 - diable_checkpoint
@@ -167,25 +168,25 @@ El fichero de configuración utiliza el mismo lenguaje que los ficheros de Terra
 - provider_installation
 
 
-## Variables de entorno
-Terraform admite variables de entorno para cambiar su comportamiento, __pero ninguna de estas variables son necesarias para su funcionamiento__.
-Las variables admitidas por Terraform son las siguientes:
+## Environmental variables
+Terraform supports environmental variables to change its behaviour, __ but none of these variables are necessary for its operation__.
+The variables supported by Terraform are as follows:
 
 ### TF_LOG
-Util para el debug de Terraform, los valores posibles son `TRACE`, `DEBUG`, `INFO`, `WARN` o `ERROR`. 
-Para deshabilitarlo, basta con declarar la variable vacia.
+Useful for Terraform debugging, the possible values are 'TRACE', 'DEBUG', 'INFO', 'WARN' or 'ERROR'. 
+To disable it, simply declare the variable empty.
 
 ### TF_LOG_PATH
-Ruta del fichero donde dejará los logs, también debe estar definida la variable `TF_LOG`.
+Path of the file where you will leave the logs, the variable `TF_LOG` must also be defined.
 
 ### TF_INPUT
-Cuando una variable de terraform no está definida, en la terminal se obtiene un mensaje para indicarlo. 
-Si la variable `TF_INPUT`, se establece com `false` o `0`, se deshabilita el comportamiento. 
-Se puede establecer en linea de comandos indicando `-input=false`.
+When a terraform variable is not defined, a message is displayed on the terminal to indicate this. 
+If the variable `TF_INPUT`, is set to `false` or `0`, the behaviour is disabled. 
+It can be set on the command line by entering `-input=false`.
 
 ### TF_VAR_name
-En lugar de indicar el valor en el código de Terraform, es posible indicar el valor, mediante variale de entorno. Previamente, la variable debe estar definida.
-Por ejemplo:
+Instead of indicating the value in the Terraform code, it is possible to indicate the value, by means of environment variale. Previously, the variable must be defined.
+For example:
 
 ```
 export TF_VAR_region=us-west-1
@@ -196,113 +197,113 @@ export TF_VAR_amap='{ foo = "bar", baz = "qux" }'
 ```
 
 ### TF_CLI_ARGS and TF_CLI_ARGS_name 
-Permite especificar argumentos adicionales en la linea de comandos.
-Se inserta directamente después del sub-comando y tienen prioridad sobre las variables de entorno.
+Allows you to specify additional arguments on the command line.
+It is inserted directly after the sub-command and has priority over environment variables.
 
-Por ejemplo:
+For example:
 ```
 export TF_CLI_ARGS="-input=false"
 
-Cuando se lance:
+When it is launched:
 terraform apply -force
 
-En realidad se está lanzando:
+It is actually being launched:
 terraform apply -input=false -force
 ```
 
-Es posible indicar que solamente afecte a un sub-comando. Por ejemplo:
+It is possible to indicate that only one sub-command is affected. For example:
 
 ```
 export TF_CLI_ARGS_plan="-refresh=false"
 ```
 
 ### TF_DATA_DIR
-Permite indicar la ubicación de los datos del directorio de trabajo.
-Por defecto los datos se escriben en el directorio __.terraform__ del directorio actual.
+Allows you to indicate the location of the data in the working directory.
+By default the data is written in the __.terraform__ directory of the current directory.
 
-> Puede ser util cuando el directorio de trabajo, no es editable.
+> This can be useful when the working directory is not editable.
 
 ### TF_IN_AUTOMATION
-Modifica la salida cuando se utiliza en un entorno de CI.
+Modifies the output when used in an IC environment.
 
 ### TF_REGISTRY_DISCOVERY_RETRY
-Permite configurar el número máximo de reintentos de solicitud.
+Allows you to set the maximum number of request retries.
 
 ### TF_REGISTRY_CLIENT_TIMEOUT
-Segundo establecidos para el timeout, por defecto `10s`.
+Second set for timeout, default '10s'.
 ```
 export TF_REGISTRY_CLIENT_TIMEOUT=15
 ```
 
 ### TF_CLI_CONFIG_FILE
-Localización del fichero `.terraformrc`.
+Location of the `.terraformrc' file.
 ```
 export TF_CLI_CONFIG_FILE="$HOME/.terraformrc-custom"
 ```
 ### TF_IGNORE
-Si el valor de la variable es `TRACE`, mostrará debug, sobre fichero y directorios ignorados.
+If the value of the variable is 'TRACE', it will show debug, over file and ignored directories.
 
-Es posible crear ficheros `.terraformignore`, para determinar que tipo de ficheros serán ignorados en la ejecución.
+It is possible to create `.terraformignore` files, to determine what type of files will be ignored in the execution.
 
-## Comandos
-Todos los sub-comandos que se pueden lanzar con terraform son los siguientes:
+## Commands
+All the sub-commands that can be launched with terraform are as follows
 
-| command  | Usage  | description  |
+| command | Usage | description |
 |---|---|---|
-| apply   | terraform apply [options] [dir-or-plan]  | Utilizado para aplicar los cambios para alcanzar el estado deseado  |
-| console  | terraform console [options] [dir]  | Consola interactiva para evaluar expresiones  |
-| destroy  | terraform destroy [options] [dir]  | Destruye la infraestructura  |
-| fmt  | terraform fmt [options] [DIR]  | Reescribe los ficheros a un formato y estilo canónico  |
-| force-unlock  | terraform force-unlock LOCK_ID [DIR]  | Desbloqueo manual de la configuración definida  |
-| get  | terraform get [options] [dir]  | Descarga y actualiza los módulos mencionados en el módulo raiz  |
-| graph  | terraform graph [options] [DIR]  | Genera una representación visual de un plan de configuración, en formato DOT y representable por GraphViz |
-| import  | terraform import [options] ADDRESS_ID  | Importa recursos existentes  |
-| init  | terraform init [options] [DIR]  | Inicializa el directorio de trabajo, por ejemplo, descargando los `providers` necesarios  |
-| login  | terraform login [hostname]  | Obtener y guardar un token para la API de Terraform Cloud, Enterprise u otro host  |
-| logout  | terraform logout [hostname]  | Elimina token para la API de Terraform Cloud, Enterprise u otro host   |
-| output  | terraform output [options] [NAME]  | Muestra el valor de la salida de una variable definida en el `State file`  |
-| plan  | terraform plan [options] [dir]  | Plan de ejecución. Permite conocer que modificaciones hará para alcanzar el estado deseado  |
-| providers  | terraform providers [config-path]  | Muestra información sobre los `providers` usandos en la configuración actual  |
-| refresh  | terraform refresh [options] [dir]  | Alinear `State file` con el estado actual  |
-| show  | terraform show [options] [path]   | Muestra salida legible sobre un `State File` o `Plan File`  |
-| state  | terraform state <subcommand> [options] [args]  | Permite modificar el `State File`, o incluso hacer backups de el  |
-| taint  | terraform taint [options] address  | Permite marcar un recursos para forzar su recreación en el proximo `apply`  |
-| validate  | terraform validate [options] [dir]  | Valida los archivos de configuración, sin acceder a ningún servicio remoto   |
-| untaint  | terraform untaint [options] name  | Permitir desmarcar un recurso que ha sido marcado para su recreación  |
-| workspace  | terraform workspace <subcommand> [options] [args]  | Usado para administrar los workspaces  |
+| apply | terraform apply [options] [dir-or-plan] | Used to apply changes to achieve the desired state |
+| console | terraform console [options] [dir] | Interactive console for evaluating expressions |
+| destroy | terraform destroy [options] [dir] | Destroy the infrastructure |
+| fmt | terraform fmt [options] [DIR] | Rewrite files to a canonical format and style |
+| force-unlock | terraform force-unlock LOCK_ID [DIR] | Manual release of the defined settings |
+| get | terraform get [options] [dir] | Download and update the modules mentioned in the root module |
+| graph | terraform graph [options] [DIR] | Generates a visual representation of a configuration plan, in DOT format and representable by GraphViz |
+| import | terraform import [options] ADDRESS_ID | Import existing resources |
+| init | terraform init [options] [DIR] | Initialize the working directory, e.g. by downloading the necessary 'providers
+| login | terraform login [hostname] | Get and save a token for the Terraform Cloud API, Enterprise or other host |
+| logout | terraform logout [hostname] | Remove token for Terraform Cloud API, Enterprise or other host |
+| output | terraform output [options] [NAME] | Displays the output value of a variable defined in the 'State file' |
+| plan | terraform plan [options] [dir] | Implementation plan. Allows you to know what modifications you will make to reach the desired state |
+| providers | terraform providers [config-path] | Displays information about the 'providers' used in the current configuration |
+| refresh | terraform refresh [options] [dir] | Align 'State file' with current status |
+| show | terraform show [options] [path] | Display readable output on a 'State File' or 'Plan File' |
+| state | terraform state <subcommand> [options] [args] | Allows you to modify the 'State File', or even to make backups of it
+| taint | terraform taint [options] address | Allows to mark a resource to force its recreation in the next 'apply' |
+| validate | terraform validate [options] [dir] | Validate configuration files, without accessing any remote service |
+| untaint | terraform untaint [options] name | Allow to uncheck a resource that has been marked for recreation |
+| workspace | terraform workspace <subcommand> [options] [args] | Used to manage workspaces |
 
 
 # Providers
-Un _Provider_, es el responsable de comprender las interacciones de la API y de exponer sus recursos. 
+A _Provider_, is responsible for understanding the interactions of the API and for exposing its resources. 
 
-__Terraform Registry__ es el almacen principal de los __providers__ de Terraform disponibles públicamente.
+The Terraform Registry__ is the main repository for the publicly available Terraform __Providers__.
 
-Debe indicar en su código el __provider__ o __providers__ a utilizar. 
-Cuando ejecuta `terraform init`, busca el provider declarado y descarga su plugin en el directorio __.terraform__ del directorio de trabajo.
+You must indicate in your code the __provider__ or __providers__ to be used. 
+When you run 'terraform init', it looks for the declared provider and downloads its plugin into the __.terraform__ directory of the working directory.
 
-Puede encontrar los _providers_ manejados por Terraform, en la página oficial.
+You can find the __providers__ managed by Terraform, on the official website.
 https://www.terraform.io/docs/providers/index.html
 
-## Recursos necesarios
-El primer recurso a indicar en nuestro código será el _provider_. Por ejemplo, para AWS:
+## Resources needed
+The first resource to indicate in our code will be the _provider_. For example, for AWS:
 
 ```
 provider "aws" {
-  region  = "us-east-1"
-  access_key = "PUT-YOUR-ACCESS-KEY-HERE"
-  secret_key = "PUT-YOUR-SECRET-KEY-HERE"
+  region = "us-east-1"
+  access_key = "PUT-YOUR-ACCESS-KEY-HERE
+  secret_key = "PUT-YOUR-SECRET-KEY-HERE
 }
 ```
 
-> Las credenciales pueden ser indicadas como variables de entorno, tal como se utilizarían para interactuar con la plataforma, o en el propio recurso.
+> Credentials can be indicated as environment variables, as they would be used to interact with the platform, or in the resource itself
 
-## Recursos recomendados
-Es conveniente, pero no obligatorio, indicar algunas configuraciones para evitar problemas en la provisión de la infraestructura.
-La siguiente configuración, permite que la versión del provider sea la última versión `2.X.X`. Y requiere que la versión de terraform sea igual o superior a la versión `0.12`
+## Recommended resources
+It is advisable, but not compulsory, to indicate some configurations to avoid problems in the provision of infrastructure.
+The following configuration allows the provider version to be the latest '2.X.X' version. And it requires that the terraform version be equal or superior to version `0.12`.
 ```
 provider "aws" {
-  region  = "us-east-1"
-  version = "~> 2.55.0"
+  region = "us-east-1"
+  version = "~> 2.55.0
 }
 
 terraform {
@@ -310,28 +311,28 @@ terraform {
 }
 ```
 
-# Ejercicios
-Se han planteando los siguientes ejercicios para adquirir los conocimientos necesarios para la certificación.
+# Exercises
+The following exercises have been planned to acquire the necessary knowledge for certification.
 
-| Índice  | Enlace  | Descripción  |
+| Index | Link | Description |
 |---|---|---|
-| 01  | [Mi primer recurso](01-Mi_primer_recurso/README.md)  | Creación de un único recurso  |
-| 02  | [Mis primeros recursos](02-Mis_primeros_recursos/README.md)  | Creación de varios recursos  |
-| 03  | [Estado actual VS Estado deseado](03-Estado_actual-Vs-Estado_deseado/README.md)  | Ejemplos de .tfstate, estado actual y estado deseado  |
-| 04  | [Providers](04-Providers/README.md)  | Ejemplos de Providers |
-| 05  | [Outputs](05-Outputs/README.md)  | Ejemplos de Outputs  |
-| 06  | [Outputs V2](06-Outputs-V2/README.md)  | Ejemplo de outputs entre .tfstate  |
-| 07  | [Variables](07-Variables/README.md)  | Ejemplo de variables  |
-| 08  | [Data types](08-Data-types/README.md)  | Ejemplo de Data types  |
-| 09  | [Expressions](09-Expressions/README.md)  | Ejemplo de Expressions  |
-| 10  | [Local values](10-Local_values/README.md)  | Ejemplo de valores locales  |
-| 11  | [Provisioners](11-Provisioners/README.md)  | Ejemplo de Provisioners  |
-| 12  | [Modules](12-Modules/README.md)  | Ejemplo de Modulos  |
-| 13  | [Data sources](13-Data-sources/README.md)  | Ejemplo de Data Sources |
-| 14  | [Registry](14-Registry/README.md)  | Ejemplo de Registry |
-| 15  | [Workspace](15-Workspaces/README.md)  | Ejemplo de Workspace |
-| 16  | [Remote state management](16-Remote-State-Management/README.md)  | Ejemplos de manejo con el state remoto  |
-| 17  | [Dynamic blocks](17-dynamic-blocks/README.md)  | Ejemplo de manejo con bloques dinámicos  |
-| 18  | [Taiting](18-tainting/README.md)  | Ejemplo de Taiting  |
-| 19  | [Terraform Graph](19-terraform-graph/README.md)  | Ejemplo de creación de gráficos  |
-| 20  | [Vault](20-vault/README.md)  | Ejemplo con Vault  |
+| 01 | [My first resource](01-Mi_first_resource/README.md) | Creating a single resource
+| 02 | [My first resources](02-My_first_resources_v2/README.md) | Creating various resources |
+| 03 | [Current Status VS Desired Status](03-Current_State-Vs-Desired_State/README.md) | Examples of .tfstate, current status and desired status |
+| 04 | [Providers](04-Providers/README.md) | Examples of Providers |
+| 05 | [Outputs](05-Outputs/README.md) | Examples of Outputs
+| 06 | [Outputs V2](06-Outputs-V2/README.md) | Example of outputs between .tfstate
+| 07 | [Variables](07-Variables/README.md) | Example of variables |
+| 08 | [Data types](08-Data-types/README.md) | Data types example |
+| 09 | [Expressions](09-Expressions/README.md) | Example of Expressions |
+| 10 | [Local values](10-Local_values/README.md) | Example of local values
+| 11 | [Provisioners](11-Provisioners/README.md) | Example of Provisioners |
+| 12 | [Modules](12-Modules/README.md) | Example of Modules |
+| 13 | [Data sources](13-Data-sources/README.md) | Data Sources Example |
+| 14 | [Registry](14-Registry/README.md) | Example of Registry |
+| 15 | [Workspace](15-Workspaces/README.md) | Workspace example |
+| 16 | [Remote state management](16-Remote-State-Management/README.md) | Examples of remote state management |
+| 17 | [Dynamic blocks](17-dynamic-blocks/README.md) | Example of operation with dynamic blocks |
+| 18 | [Taiting](18-tainting/README.md) | Example of Taiting |
+| 19 | [Terraform Graph](19-terraform-graph/README.md) | Example of graph creation |
+| 20 | [Vault](20-vault/README.md) | Example with Vault

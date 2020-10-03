@@ -1,8 +1,8 @@
 # Remote State Management
-Lo ideal es tener nuestro código de terraform en un repositorio versionado.
+The ideal is to have our terraform code in a versioned repository.
 
-## Datos sensibles
-Para evitar almacenar datos sensibles en nuestro control de veriones, podemos ayudarnos de la función file
+## Sensitive data
+To avoid storing sensitive data in our version control, we can use the file
 ```
 terraform plan
 Refreshing Terraform state in-memory prior to plan...
@@ -77,8 +77,8 @@ can't guarantee that exactly these actions will be performed if
 
 
 ## Remote state AWS
-El fichero tfstate es un fichero muy delicado y que no debería estar un un sistema de control de veriones, ya que los datos sensibles se reflejan en el.
-Para ello podemos utilizar los backens, y almacenar los tfstates en múltiples lugares, como por ejemplo un bucket de S3
+The tfstate file is a very sensitive file and should not be a version control system, as sensitive data is reflected in it.
+For this we can use the backens, and store the tfstates in multiple places, such as an S3
 ```
 terraform {
   backend "s3" {
@@ -89,8 +89,8 @@ terraform {
 }
 ```
 
-## Bloqueo del fichero tfstate
-Terraform evita que multiples usuarios escriban en el tfstate, cuando se lanza una operación de escritura contra el tfstate, el fichero es bloqueado.
+## Blocking the tfstate file
+Terraform prevents multiple users from writing to the tfstate. When a write operation is launched against the tfstate, the file is blocked.
 
 ```
 terraform plan     
@@ -112,29 +112,29 @@ again. For most commands, you can disable locking with the "-lock=false"
 flag, but this is not recommended.
 ```
 
-## Manejo de TFSTATE
-El fichero tfstate nunca debe editarse a mano, mediante terraform puede realizarse las siguientes acciones:
+## Handling of TFSTATE
+The tfstate file should never be edited by hand. The following actions can be carried out using terraform
 
 | Subcomand | Description | Example |
 |---|---|---|
-| list | Permite listar los recuros que está declarados en el .tfsate| terraform state list  |
-| mv | Permite renombrar un recurso | terraform state mv aws_iam_user.lb aws_iam_user.rds  |
-| pull | Muestra el fichero tfsate | terraform state pull |
-| push | Si se modifica a mano, el fichero .tfsate, rara vez se utiliza | terraform state push |
-| rm | Elimina un recurso del .tfsate | terraform state rm   aws_iam_user.lb1|
-| show | Muestra el código del recurso | terraform state show  aws_iam_user.lb1|
+| list | Allows to list the resources that are declared in the .tfsate| terraform state list |
+| mv | Allows you to rename a resource | terraform state mv aws_iam_user.lb aws_iam_user.rds |
+| pull | tfsate | terraform state pull |
+| push | If modified by hand, the .tfsate file is rarely used | terraform state push |
+| rm | Remove a resource from .tfsate | terraform state rm aws_iam_user.lb1|
+| show | show resource code | terraform state show aws_iam_user.lb1|
 
-## Importar recursos
-Puede darse el escenario en el que se haya creado un recurso a mano, y quiera ser administrado con Terraform.
-Para ello existe la función __terraform import__, que permite añadir al fichero .tfstate, un recurso creado manualmente.
-
-
-## Providers multiregion
-Podemos hacer uso de multiples providers, utilizando regiones distintas, añadiendo un alias e indican en el recurso en que provider se creará.
+## Importing resources
+There may be a scenario where a resource has been created by hand, and you want to manage it with Terraform.
+For this purpose, there is the __terraform import__ function, which allows you to add a manually created resource to the .tfstate file.
 
 
-## Parámetros sensibles
-Cuando hacemos uso de outputs, podemos indicar que parámetros son sensible para evitar que sean mostrados
+## Multi-region providers
+We can make use of multiple providers, using different regions, by adding an alias and indicating on the resource where the provider will be created.
+
+
+## Sensitive parameters
+When using outputs, we can indicate which parameters are sensitive to prevent them from being displayed
 ```
 output "instance_ip_addr" {
   value       = aws_instance.server.private_ip

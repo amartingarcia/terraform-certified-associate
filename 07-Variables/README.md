@@ -1,10 +1,10 @@
 # 07 - Variables
-Principalmente las variables se utilizan para los valores repetitivos, pero también pueden ser utilizadas para valores con mayor tendencia a cambios.
+The variables are mainly used for repetitive values, but they can also be used for values with a higher tendency to change.
 
-## Ejemplo de declaración de variables
+## Example of variable declaration
 
-## Asignación de variables
-Una variable puede ser asignada o sobreescrita durante la ejecución de un _plan_ o un _apply_.
+## Assignment of variables
+A variable can be assigned or overwritten during the execution of a _plan_ or _apply_.
 ```
 terraform plan -var="cidr=189.1.3.57/32"
 Refreshing Terraform state in-memory prior to plan...
@@ -87,8 +87,8 @@ can't guarantee that exactly these actions will be performed if
 ```
 
 
-## Variable como input
-Si una variable es definida, pero no se le proporciona ningún valor, pedirá por pantalla establecer uno:
+## Variable as input
+If a variable is defined, but no value is provided, you will be asked to set one:
 
 ```
 terraform plan                          
@@ -174,31 +174,31 @@ can't guarantee that exactly these actions will be performed if
 "terraform apply" is subsequently run.
 ```
 
-## Precedencia de variables
-Las variables pueden ser definidas en múltiples lugares, pero son ordenadas por precedencia.
-- Variables de entorno
-- Ficheros terraform.tfvars
-- Ficheros terraform.tfvar.json
-- Ficheros *.auto.tfvars o *.auto.tfvars.json
-- Ficheros indicados por -var o -var-file
-- Variables por defecto
+## Precedence of variables
+The variables can be defined in multiple places, but are ordered by precedence.
+- Environmental variables
+- terraform.tfvars files
+- files terraform.tfvar.json
+- Files *.auto.tfvars or *.auto.tfvars.json
+- Files indicated by -var or -var-file
+- Default variables
 
-## Variables de entorno
-La declaración de la variable debe estar previamente definida.
+## Environmental variables
+The declaration of the variable must be previously defined.
 
-En el fichero variables.tf, se define la variable cidr, si ejecutamos `terraform plan`, nos pedirá el valor de la variable por pantalla.
+In the file variables.tf, the variable cidr is defined, if we execute `terraform plan`, it will ask us the value of the variable by screen.
 ```
  terraform plan
 var.cidr
   Enter a value: 
 ```
 
-Para indicar el valor por medio de variables de entorno, se indica exportanto la variable TF_VAR_[nombre_variable], por ejemplo:
+To indicate the value by means of environment variables, it is indicated by exporting the variable TF_VAR_[variable_name], for example:
 ```
 export TF_VAR_cidr="192.11.4.56/32"
 ```
 
-Una vez definida, tras ejecutar el plan, podemos observar el comportamiento.
+Once defined, after executing the plan, we can observe the behaviour.
 ```
 terraform plan
 Refreshing Terraform state in-memory prior to plan...
@@ -281,11 +281,11 @@ can't guarantee that exactly these actions will be performed if
 ```
 
 
-## Ficheros terraform.tfvars o terraform.tfvar.json
-Las buenas práticas de Terraform definen que se utilicen ficheros `.tfvars`, junto con valores por defecto.
-Para entenderlo debemos jugar con los ficheros y sus valores:
+## files terraform.tfvars or terraform.tfvar.json
+Terraform's good practices define that `.tfvars' files are used, along with default values.
+To understand this we must play with the files and their values:
 
-* Terraform plan, con definición de variable y valor en _variables.tf_:
+* Terraform plan, with variable definition and value in _variables.tf_:
 ````
 terraform plan
 Refreshing Terraform state in-memory prior to plan...
@@ -367,7 +367,7 @@ can't guarantee that exactly these actions will be performed if
 "terraform apply" is subsequently run.
 ````
 
-* Terraform plan, con definición de variable y valor en _variables.tf_, y fichero __terraform.tfvars__:
+* Terraform plan, with definition of variable and value in _variables.tf_, and file __terraform.tfvars__:
 ```
 terraform plan
 Refreshing Terraform state in-memory prior to plan...
@@ -449,7 +449,7 @@ can't guarantee that exactly these actions will be performed if
 "terraform apply" is subsequently run.
 ```
 
-* Terraform plan, con definición de variable y valor en _variables.tf_, y fichero __terraform.tfvars.json__:
+* Terraform plan, with definition of variable and value in _variables.tf_, and file __terraform.tfvars.json__:
 ```
 terraform plan
 Refreshing Terraform state in-memory prior to plan...
@@ -532,13 +532,13 @@ can't guarantee that exactly these actions will be performed if
 ```
 
 
-## Ficheros *.auto.tfvars o *.auto.tfvars.json
-Son ficheros con valores de variables, que se cargan automáticamente y en orden alfabético.
+## Files *.auto.tfvars or *.auto.tfvars.json
+These are files with variable values, which are automatically loaded in alphabetical order.
 
-## Ficheros indicados por -var o -var-file
-Puede darse el escenario de que queramos definir una variable en runtime, o que queramos indicar un fichero con variables.
+## Files indicated by -var or -var-file
+There may be a scenario where we want to define a variable in runtime, or where we want to indicate a file with variables.
 
-* Variable en runtime
+* Variable in runtime
 ```
 terraform plan -var="cidr=1.2.3.4/32"
 Refreshing Terraform state in-memory prior to plan...
@@ -620,7 +620,7 @@ can't guarantee that exactly these actions will be performed if
 "terraform apply" is subsequently run.
 ```
 
-* Variables a partir de un fichero
+* Variables from a file
 ```
 terraform plan -var-file=custom.tfvars
 Refreshing Terraform state in-memory prior to plan...
@@ -703,9 +703,9 @@ can't guarantee that exactly these actions will be performed if
 ```
 
 
-## Variables por defecto
-Es recomendable definir un valor por defecto para nuestro código, e indicar o definir un fichero .tfvars para los valores.
-En caso contrario, y que no se defina un fichero con variables, el valor, será el de por defecto
+## Default variables
+It is advisable to define a default value for our code, and to indicate or define a .tfvars file for the values.
+Otherwise, and if a file with variables is not defined, the value will be the default one
 ```
 terraform plan
 Refreshing Terraform state in-memory prior to plan...
