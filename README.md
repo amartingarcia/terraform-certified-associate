@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Hashicorp Terraform Certified Associate
+=======
+# terraform-certified-associate
+>>>>>>> 424c608f410cde02eaf728c4d0762d3f599dc26d
 
 The following official points of the documentation have been taken into account for the preparation of the exam:
 - https://learn.hashicorp.com/tutorials/terraform/associate-review?in=terraform/certification
@@ -316,6 +320,7 @@ The following exercises have been planned to acquire the necessary knowledge for
 
 | Index | Link | Description |
 |---|---|---|
+<<<<<<< HEAD
 | 01 | [My first resource](01-Mi_first_resource/README.md) | Creating a single resource
 | 02 | [My first resources](02-My_first_resources_v2/README.md) | Creating various resources |
 | 03 | [Current Status VS Desired Status](03-Current_State-Vs-Desired_State/README.md) | Examples of .tfstate, current status and desired status |
@@ -336,3 +341,25 @@ The following exercises have been planned to acquire the necessary knowledge for
 | 18 | [Taiting](18-tainting/README.md) | Example of Taiting |
 | 19 | [Terraform Graph](19-terraform-graph/README.md) | Example of graph creation |
 | 20 | [Vault](20-vault/README.md) | Example with Vault
+=======
+| 01  | [Mi primer recurso](01-Mi_primer_recurso/README.md)  | Creación de un único recurso  |
+| 02  | [Mis primeros recursos](02-Mis_primeros_recursos/README.md)  | Creación de varios recursos  |
+| 03  | [Estado actual VS Estado deseado](03-Estado_actual-Vs-Estado_deseado/README.md)  | Ejemplos de .tfstate, estado actual y estado deseado  |
+| 04  | [Providers](04-Providers/README.md)  | Ejemplos de Providers |
+| 05  | [Outputs](05-Outputs/README.md)  | Ejemplos de Outputs  |
+| 06  | [Outputs V2](06-Outputs-V2/README.md)  | Ejemplo de outputs entre .tfstate  |
+| 07  | [Variables](07-Variables/README.md)  | Ejemplo de variables  |
+| 08  | [Data types](08-Data-types/README.md)  | Ejemplo de Data types  |
+| 09  | [Expressions](09-Expressions/README.md)  | Ejemplo de Expressions  |
+| 10  | [Local values](10-Local_values/README.md)  | Ejemplo de valores locales  |
+| 11  | [Provisioners](11-Provisioners/README.md)  | Ejemplo de Provisioners  |
+| 12  | [Modules](12-Modules/README.md)  | Ejemplo de Modulos  |
+| 13  | [Data sources](13-Data-sources/README.md)  | Ejemplo de Data Sources |
+| 14  | [Registry](14-Registry/README.md)  | Ejemplo de Registry |
+| 15  | [Workspace](15-Workspaces/README.md)  | Ejemplo de Workspace |
+| 16  | [Remote state management](16-Remote-State-Management/README.md)  | Ejemplos de manejo con el state remoto  |
+| 17  | [Dynamic blocks](17-dynamic-blocks/README.md)  | Ejemplo de manejo con bloques dinámicos  |
+| 18  | [Taiting](18-tainting/README.md)  | Ejemplo de Taiting  |
+| 19  | [Terraform Graph](19-terraform-graph/README.md)  | Ejemplo de creación de gráficos  |
+| 20  | [Vault](20-vault/README.md)  | Ejemplo con Vault  |
+>>>>>>> 424c608f410cde02eaf728c4d0762d3f599dc26d
