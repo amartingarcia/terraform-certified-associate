@@ -1,4 +1,4 @@
-# terraform_training
+# terraform-certified-associate
 
 Para la preparación del examen se ha tenido en cuenta los siguientes puntos oficiales de la documentación:
 - https://learn.hashicorp.com/tutorials/terraform/associate-review?in=terraform/certification
