@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # Hashicorp Terraform Certified Associate
-=======
-# terraform-certified-associate
->>>>>>> 424c608f410cde02eaf728c4d0762d3f599dc26d
 
 The following official points of the documentation have been taken into account for the preparation of the exam:
 - https://learn.hashicorp.com/tutorials/terraform/associate-review?in=terraform/certification
@@ -10,29 +6,29 @@ The following official points of the documentation have been taken into account 
 
 # Table of contents:
 - [terraform_training](#terraform_training)
-- [Tabla de contenidos](#tabla-de-contenidos)
-- [Introducción](#introducción)
-- [Casos de uso](#casos-de-uso)
-- [Lenguaje de configuración](#lenguaje-de-configuración)
-  - [Recursos y módulos](#recursos-y-módulos)
-  - [Argumentos, bloques y expresiones](#argumentos-bloques-y-expresiones)
-  - [Organización de código](#organización-de-código)
-  - [Configuración de ordenación](#configuración-de-ordenación)
-  - [Terraform CLI vs otros providers](#terraform-cli-vs-otros-providers)
-- [Bloque de configuración](#bloque-de-configuración)
-  - [Sintaxis](#sintaxis)
-  - [Tipos de recursos](#tipos-de-recursos)
-  - [Comportamiento de los recursos](#comportamiento-de-los-recursos)
-  - [Meta-argumentos](#meta-argumentos)
-  - [Recursos locales](#recursos-locales)
+- Table of contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Use cases](#use cases)
+- Configuration language](#configuration language)
+  - [Resources and modules](#resources-and-modules)
+  - [Arguments, blocks and expressions](#arguments-blocks-and-expressions)
+  - [Code organization](#code organization)
+  - [Sorting configuration](#sorting-configuration)
+  - [Terraform CLI vs other providers](#terraform-cli-vs-other-providers)
+- Configuration block](#configuration block)
+  - [Syntax](#syntax)
+  - [Types of resources](#resource-types)
+  - [Resource behaviour](#resource-behaviour)
+  - [Meta-arguments](#meta-arguments)
+  - [Local resources](#local-resources)
   - [Timeouts](#timeouts)
-- [Terraform CLI](#terraform-cli)
-  - [Ficheros de configuración](#ficheros-de-configuración)
-  - [Variables de entorno](#variables-de-entorno)
-    - [TF_LOG](#tf_log)
-    - [TF_LOG_PATH](#tf_log_path)
-    - [TF_INPUT](#tf_input)
-    - [TF_VAR_name](#tf_var_name)
+- Terraform CLI](#terraform-cli)
+  - Configuration files](#configurationfiles)
+  - [Environmental variables](#environmental-variables)
+    - TF_LOG](#tf_log)
+    - TF_LOG_PATH](#tf_log_path)
+    - TF_INPUT](#tf_input)
+    - TF_VAR_name](#tf_var_name)
     - [TF_CLI_ARGS and TF_CLI_ARGS_name](#tf_cli_args-and-tf_cli_args_name)
     - [TF_DATA_DIR](#tf_data_dir)
     - [TF_IN_AUTOMATION](#tf_in_automation)
